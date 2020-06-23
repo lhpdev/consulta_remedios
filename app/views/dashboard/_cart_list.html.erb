@@ -1,0 +1,13 @@
+<h2> Cart Items </h2>
+<%= render partial: 'cart_item', collection: @cart_items %>
+<% if @cart.cart_items.any? %> 
+  <h4>Total: <%= @total %></h4>
+  <%= form_with url: "/carts/complete", local: false  do |f| %>
+    <%= f.hidden_field :customer_id, value: @customer.id %>
+    <%= f.submit 'Purchase' %>
+  <% end %>
+  <%= form_with url: "/carts/cancel", local: false  do |f| %>
+    <%= f.hidden_field :customer_id, value: @customer.id %>
+    <%= f.submit 'Cancel Cart' %>
+  <% end %>
+<% end %>

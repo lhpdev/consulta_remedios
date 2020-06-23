@@ -1,0 +1,18 @@
+<div class="col-md-4">
+  <div class="card mb-4 shadow-sm" data-id="<%= cart_item.id %>">
+    <div class="card-body">
+      <p class="card-text"> 
+        <%= cart_item.medicine.name %>
+        Cost: <%= cart_item.medicine.value %>
+        Quantity: <%= cart_item.quantity %>
+      </p>
+      <%= form_with url: "/cart_items/remove", local: false  do |f| %>
+        <%= f.label 'Quantity:' %>
+        <%= f.hidden_field :cart_id, value: cart_item.cart.id %>
+        <%= f.hidden_field :cart_item_id, value: cart_item.id %>
+        <%= f.number_field :quantity, { default: nil, min: 1, max: cart_item.quantity } %>
+        <%= f.submit 'Remove' %>
+      <% end %>
+    </div>
+  </div>
+</div>

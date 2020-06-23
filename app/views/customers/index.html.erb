@@ -1,0 +1,13 @@
+<h2>Select Customer</h2>
+<%= form_with url: "customers/select", local: true  do |f| %>
+  <%= f.collection_select :customer_id, Customer.all, :id, :name  %>
+  <%= f.submit 'Select' %>
+<% end %>
+
+
+<h2>Create Customer</h2>
+<%= form_with url: "customers/create", local: true  do |f| %>
+  <%= f.label "Name:" %>
+  <%= f.text_field(:name) %>
+  <%= f.submit 'Create' %>
+<% end %>

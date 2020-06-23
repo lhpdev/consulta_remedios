@@ -1,0 +1,18 @@
+<div class="col-md-4">
+  <div class="card mb-4 shadow-sm" data-id="<%= stock_item.id %>">
+    <div class="card-body">
+      <p class="card-text"> 
+        <%= stock_item.name %>
+        Cost: <%= stock_item.value %>
+        In stock: <%= stock_item.stock %>
+      </p>
+    </div>
+    <%= form_with url: "/cart_items/add", local: false  do |f| %>
+      <%= f.label 'Quantity:' %>
+      <%= f.hidden_field :medicine_id, value: stock_item.id %>
+      <%= f.number_field :quantity, { default: nil, min: 1, max: stock_item.stock } %>
+      <%= f.hidden_field :cart_id, value: @customer.active_cart.id %>
+      <%= f.submit 'Add' %>
+    <% end %>
+  </div>
+</div>
