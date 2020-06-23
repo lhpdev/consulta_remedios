@@ -1,7 +1,12 @@
-<% if @customer.present? %>
-  <h3>User: <%= @customer.name %></h3>
-  <%= render partial: 'stock_list' %>
-  <%= render partial: 'cart_list' %>
-<% else %>
-  <%= render partial: 'customer_selection' %>
-<% end %>
+<img src="images/logo.png" class="img-thumbnail" style="max-width: 60px;" />
+<div class="container">
+  <h4 class="text-left"><strong>User:</strong> <%= @customer.name %></h4>
+  <div class="py-3">
+    <%= render partial: 'stock_list' %>
+  </div>
+</div>
+<div class="container">
+  <div class="py-3">
+    <%= render partial: 'cart_list' %>
+  </div>
+</div>

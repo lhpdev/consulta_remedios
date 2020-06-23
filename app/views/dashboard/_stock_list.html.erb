@@ -1,6 +1,8 @@
-<h2>Products:</h2>
+<h2 class="text-left">Products:</h2>
 <% if @stock.any? %>
-  <%= render partial: 'stock_item', collection: @stock %>
+  <div class="row">
+    <%= render partial: 'stock_item', collection: @stock %>
+  </div>
 <% else %>
   <p> Sorry but we have ran out of stock </p>
 <% end %>

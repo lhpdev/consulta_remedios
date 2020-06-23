@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ConsultaRemedio</title>
+    <meta charset="uft-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ConsultaRemedio App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,11 +12,15 @@
   </head>
 
   <body>
-    <% flash.each do |type, msg| %>
-      <div>
-        <%= msg %>
+    <div class="cover-container w-100 h-100 mx-auto flex-column d-flex text-center">
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-primary" role="alert">
+          <%= msg %>
+        </div>
+      <% end %>
+      <div class="py-3">
+        <%= yield %>
       </div>
-    <% end %>
-    <%= yield %>
+    </div>
   </body>
 </html>

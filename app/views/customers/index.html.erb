@@ -1,13 +1,34 @@
-<h2>Select Customer</h2>
-<%= form_with url: "customers/select", local: true  do |f| %>
-  <%= f.collection_select :customer_id, Customer.all, :id, :name  %>
-  <%= f.submit 'Select' %>
-<% end %>
-
-
-<h2>Create Customer</h2>
-<%= form_with url: "customers/create", local: true  do |f| %>
-  <%= f.label "Name:" %>
-  <%= f.text_field(:name) %>
-  <%= f.submit 'Create' %>
-<% end %>
+<h4>Consulta Remédios App</h4>
+<img src="images/logo.png" />
+<div class="container d-flex justify-content-center">
+  <div class="col-md-4 py-3">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <h3 class="font-weight-light text-left">Select Customer</h2>
+        <%= form_with url: "customers/select", local: true  do |f| %>
+          <div class="input-group mb-3">
+            <%= f.collection_select :customer_id, Customer.all, :id, :name, {}, { class: 'custom-select' } %>
+            <div class="input-group-append">
+              <%= f.submit 'Select', :class => 'btn btn-secondary' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 py-3">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <h3 class="font-weight-light text-left">Create Customer</h2>
+        <%= form_with url: "customers/create", local: true  do |f| %>
+          <div class="input-group mb-3">
+            <%= f.text_field :name, placeholder:'Enter a name', class: "form-control" %>
+            <div class="input-group-append">
+              <%= f.submit 'Create', :class => 'btn btn-secondary' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
